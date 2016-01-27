@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculator</title>
+		<link rel="stylesheet" type="text/css" href="css/result.css">
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div class="page">
+			<form>
+				<input id="display" type="text" class="display-result"  disabled>
+			
+				<div class="interface">
+					
+					<input type="button" id="keys" onclick="addtoscreen('c')" value="C">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('7')" value="7">
+					<input type="button" class="btn-litle" onclick="addtoscreen('8')" value="8">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('9')" value="9">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('/')" value="/">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('4')" value="4">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('5')" value="5">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('6')" value="6">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('*')" value="*">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('1')" value="1">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('2')" value="2">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('3')" value="3">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('-')" value="-">
+					<input type="button" class="btn-middle" onclick="addtoscreen('0')" value="0">
+					<input type="button" class="btn-litle"  onclick="addtoscreen('.')" value=".">
+					<input type="button" class="btn-litle" onclick="addtoscreen('+')" id="addition" value="+">
+					<input type="button" class="btn-big" onclick="answer()" id="equality" value="=">
+				</div>
+			</form>		
+		</div>
+		<script>
+		var box=document.getElementById('display');
+		function addtoscreen(x)
+		{
+			box.value += x;
+			if (x=='c')
+			{
+				box.value = '';
+			}
+		}
+		function answer()
+		{
+			x=box.value;
+			x=eval(x);
+			box.value=x;
+		}
+		</script>	
+	</body>
+</html>

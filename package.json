@@ -1,0 +1,13 @@
+{
+  "name": "calc",
+  "version": "1.0.0",
+  "description": "calculator",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Dzmitry Shaliaheika <shelegeykodmitriy@mail.ru>",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.1.0"
+  }
+}
