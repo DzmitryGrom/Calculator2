@@ -26,25 +26,40 @@ body {
   box-sizing: border-box;
   border: 1px solid black;
 }
-.interface {
-  color: black;
-  font-size: 0px;
-}
-.interface button {
-  display: inline-block;
-}
-.interface #btn-arrow {
-  width: 50%;
-}
-.interface #keys {
+#answer {
   width: 100%;
 }
-.interface .btn-litle {
-  width: 25%;
+form {
+  font-size: 0;
 }
-.interface .btn-middle {
-  width: 50%;
+#operator {
+  width: 20%;
+  display: inline-block;
 }
-.interface .btn-big {
+#operator input {
+  width: 100%;
+}
+#reset {
+  width: 100%;
+  background: #E7E7E7 no-repeat url("../i/c.png") 50% 50%;
+  color: transparent;
+  outline: none;
+}
+#int {
+  color: black;
+  width: 80%;
+  display: inline-block;
+  font-size: 0px;
+}
+#int button {
+  display: inline-block;
+}
+#int .btn-litle {
+  width: 33%;
+}
+#int .btn-middle {
+  width: 66%;
+}
+#int .btn-big {
   width: 100%;
 }

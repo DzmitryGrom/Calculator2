@@ -1,0 +1,29 @@
+var input = document.getElementById('display');
+	var calculator = document.getElementsByClassName('interface')[0];
+	var del = document.getElementById('C');
+	var a = [];
+
+	calculator.onclick = function(){
+		var targ = event.target.value, targ1;
+		if 
+		(targ == "+" || targ == "-" || targ == "/" || targ == "*")
+			{
+				a.push(input.value);
+				//getValue();
+				//targ1 = 'sign';
+				console.log('SIGN')
+			} 
+		else if 
+		(targ == "C") 
+			{
+				input.value = '0';
+				//console.log("C")
+			}
+		else if 
+		(targ == '=')
+			{
+				console.log("RAVNO")
+			}
+		else console.log("CHISLA"); input.value = input.value + event.target.value;
+
+

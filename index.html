@@ -1,53 +1,141 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Calculator</title>
 		<link rel="stylesheet" type="text/css" href="css/result.css">
-		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<meta charset="utf-8">
 	</head>
 	<body>
 		<div class="page">
 			<form>
-				<input id="display" type="text" class="display-result"  disabled>
-			
-				<div class="interface">
+				<input id="display" type="text" class="display-result"   value="0" disabled>
+					<div>
+						<input  type="button" id="reset" value="0" >
+					</div>
+				<div id="int" class="interface">
 					
-					<input type="button" id="keys" onclick="addtoscreen('c')" value="C">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('7')" value="7">
-					<input type="button" class="btn-litle" onclick="addtoscreen('8')" value="8">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('9')" value="9">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('/')" value="/">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('4')" value="4">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('5')" value="5">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('6')" value="6">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('*')" value="*">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('1')" value="1">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('2')" value="2">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('3')" value="3">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('-')" value="-">
-					<input type="button" class="btn-middle" onclick="addtoscreen('0')" value="0">
-					<input type="button" class="btn-litle"  onclick="addtoscreen('.')" value=".">
-					<input type="button" class="btn-litle" onclick="addtoscreen('+')" id="addition" value="+">
-					<input type="button" class="btn-big" onclick="answer()" id="equality" value="=">
+					<input type="button" id="seven" class="btn-litle"  value="7">
+					<input type="button" id="eight" class="btn-litle"  value="8">
+					<input type="button" id="nine" class="btn-litle"   value="9">
+					<input type="button" id="four" class="btn-litle"   value="4">
+					<input type="button" id="five" class="btn-litle"   value="5">
+					<input type="button" id="six" class="btn-litle"   value="6">
+					<input type="button" id="one" class="btn-litle"  value="1">
+					<input type="button" id="two" class="btn-litle"  value="2">
+					<input type="button" id="three" class="btn-litle"  value="3">
+					<input type="button" id="zero" class="btn-middle" value="0">
+					<input type="button"  id="dot" class="btn-litle"   value=".">
 				</div>
+				<div id="operator">
+					<input type="button" id="plus"   value="+">
+					<input type="button" id="split"    value="/">
+					<input type="button" id="multiply"    value="*">
+					<input type="button"  id="minus"   value="-">
+				</div>	
+				<div>
+					<input type="button"  id="answer" class="btn-big"  value="=">
+				</div>
+				
 			</form>		
 		</div>
 		<script>
-		var box=document.getElementById('display');
-		function addtoscreen(x)
-		{
-			box.value += x;
-			if (x=='c')
-			{
-				box.value = '';
+			
+		
+		isOperator = false;
+		var a ;
+		var sign;
+		var rezult =  document.getElementById("answer")
+		//numbers onclick
+		int.addEventListener("click", function(){
+			
+			if (display.value == 0 || isOperator) {
+				display.value = event.target.value;
+
+			}else{
+				display.value += event.target.value;
+			}			
+			isOperator = false;
+		});
+		/////// operators
+		/////// +
+		document.getElementById("plus").onclick = function(event){
+			isOperator = true;
+			if(sign){
+				answer.click();
+			}else if (!a){
+				a = display.value * 1; 
+			}else{
+				a = 1 * a + displa.value * 1;
+				display.value = a * 1;
 			}
+			sign = "+";	
 		}
-		function answer()
-		{
-			x=box.value;
-			x=eval(x);
-			box.value=x;
+		/////////// -
+		document.getElementById("minus").onclick = function(event){
+			isOperator = true;
+			if(sign){
+				answer.click();
+			}else if (!a){
+				a = display.value * 1; 
+			}else{
+				a = 1 * a - displa.value * 1;
+				display.value = a;
+			}
+			sign = "-";
 		}
+		/////////  *
+		document.getElementById("multiply").onclick = function(event){
+			isOperator = true;
+			if(sign){
+				answer.click();
+			}else if (!a){
+				a = display.value * 1; 
+			}else{
+				a = 1 * a * displa.value * 1;
+				display.value = a;
+			}
+			sign = "*";	
+		}
+		///////     /
+		document.getElementById("split").onclick = function(event){
+			isOperator = true;
+			if(sign){
+				answer.click();
+			}else if (!a){
+				a = display.value * 1; 
+			}else{
+				a = 1 * a / displa.value * 1;
+				display.value = a;
+			}
+			sign = "/";	
+		}
+
+
+		document.getElementById("reset").onclick = function(){
+			display.value = "";
+			display.value = '0';
+			a = '';
+		}
+
+		document.getElementById("answer").onclick = function(){
+			
+			if(sign == "+"){
+				display.value = a + display.value * 1;
+			}
+			if(sign == "-"){
+				display.value = a - display.value * 1;
+			}
+			if(sign == "/"){
+				display.value = a / display.value * 1;
+			}
+			if(sign == "*"){
+				display.value = a * display.value * 1;
+			}
+			a = display.value * 1;
+		}
+		
 		</script>	
 	</body>
 </html>
+
